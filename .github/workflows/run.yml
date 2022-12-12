@@ -1,0 +1,13 @@
+name: 🇲🇲 MLTB_Drivetalk
+
+on:
+  workflow_dispatch:
+jobs:
+  RUNNING:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Create Image
+        run: docker pull khainezayye/mltb:latest 
+      - name: Run Image
+        run: docker run --env CONFIG_FILE_URL=${{ secrets.CONFIG_FILE_URL }} khainezayye/mltb:latest 
